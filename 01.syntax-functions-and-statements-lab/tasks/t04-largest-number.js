@@ -1,0 +1,5 @@
+function largestNumber(num1, num2, num3) {
+    console.log('The largest number is ' + Math.max(num1, Math.max(num2, num3)) + '.', );
+}
+
+// largestNumber(1, 2, 3);
