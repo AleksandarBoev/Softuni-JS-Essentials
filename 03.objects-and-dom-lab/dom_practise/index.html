@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="js-file.js"></script>
+</head>
+<body>
+<h1 id="header_id" class="header_class"></h1>
+<button onclick="generateHeaderText()">Classic</button>
+<hr/>
+<button onclick="generateHeaderText2()">Fat Arrow</button>
+<hr/>
+<button onclick="generateHeaderText3()">Inside job</button>
+<hr/>
+<button onclick="generateHeaderText4()">U got hacked</button>
+
+<script>
+    const generateHeaderText3 = () => {
+        const headerElement = document.getElementsByTagName('h1')[0];
+        headerElement.innerHTML = 'Hello from inside!';
+    };
+
+    const generateHeaderText4 = () => {
+        const headerElement = document.querySelectorAll('body h1.header_class')[0];
+        headerElement.innerHTML = 'Version2 - hello from inside!';
+    }
+</script>
+</body>
+</html>
