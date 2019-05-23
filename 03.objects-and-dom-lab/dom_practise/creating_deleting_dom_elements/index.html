@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<form>
+    <label>
+        User name: <input type="text" id="user-name"/>
+    </label>
+
+    <label>
+        User age: <input type="number" id="user-age"/>
+    </label>
+
+    <input type="button" value="Create user" onclick="createParagraphFromInput()">
+</form>
+
+<ol id="all-users">
+</ol>
+
+<button onclick="addParagraph()">Create paragraph</button>
+<button onclick="addClassColor()">Apply color class</button>
+<button onclick="addClassFontSize()">Apply font size class</button>
+<button onclick="deleteLastParagraph()">Remove paragraph</button>
+
+<script src="js-file.js"></script>
+</body>
+</html>
