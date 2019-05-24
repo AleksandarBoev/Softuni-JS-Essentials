@@ -1,6 +1,8 @@
 function solve() {
+    const convertFromSelectMenu = document.getElementById('selectMenuFrom');
+    const convertFromOptions = convertFromSelectMenu.options;
+
     const convertToSelectMenu = document.getElementById('selectMenuTo');
-    const convertToOptions = convertToSelectMenu.options;
 
     const binaryOption = convertToSelectMenu.children[0];
     binaryOption.setAttribute('value', 'binary');
@@ -11,6 +13,8 @@ function solve() {
     hexadecimalOption.textContent = 'Hexadecimal';
     convertToSelectMenu.appendChild(hexadecimalOption);
 
+    const convertToOptions = convertToSelectMenu.options;
+
     // console.log(convertToSelectMenu);
     const nameNumberRepresentationObj = {
         'binary': 2,
@@ -18,22 +22,19 @@ function solve() {
         'hexadecimal': 16
     };
 
-    const convertFromSelectMenu = document.getElementById('selectMenuFrom');
-    const convertFromOptions = convertFromSelectMenu.options;
     const convertButton = document.getElementsByTagName('button')[0];
     const resultInputElement = document.getElementById('result');
+    const convertNumberInputElement = document.getElementById('input');
 
     convertButton.addEventListener('click', () => {
-        const convertFrom = convertFromSelectMenu.textContent;
-        const convertTo = convertToSelectMenu.textContent;
+        const convertFromIndex = convertFromSelectMenu.selectedIndex;
+        const selectedConvertFromValue = convertFromOptions[convertFromIndex].value;
 
-        var x = document.getElementById("mySelect").selectedIndex;
-        var y = document.getElementById("mySelect").options;
-        alert("Index: " + y[x].index + " is " + y[x].text);
+        const convertToIndex = convertToSelectMenu.selectedIndex;
+        const selectedConvertToValue = convertToOptions[convertToIndex].value;
 
-        const result = nameNumberRepresentationObj[convertTo].toString();
-        resultInputElement.value = result;
-        resultInputElement.textContent = result;
-        console.log(resultInputElement);
+        const numberToBeConverted = Number.parseInt(convertNumberInputElement.value);
+        const result = numberToBeConverted.toString(nameNumberRepresentationObj[selectedConvertToValue]);
+        resultInputElement.value = result.toUpperCase();
     });
 }
