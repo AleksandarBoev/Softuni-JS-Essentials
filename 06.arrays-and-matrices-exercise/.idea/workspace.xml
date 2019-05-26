@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b5c80e8-a522-4a7d-9d5d-6673fddbfb05" name="Default Changelist" comment="" />
+    <list default="true" id="1b5c80e8-a522-4a7d-9d5d-6673fddbfb05" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,17 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tasks/t09-diagonal-attack.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,6 +39,7 @@
         <option value="$PROJECT_DIR$/tasks/t08-spiral-matrix.js" />
         <option value="$PROJECT_DIR$/tasks/t08-second-try.js" />
         <option value="$PROJECT_DIR$/tasks/t09-diagonal-attack.js" />
+        <option value="$PROJECT_DIR$/tasks/t10-orbit.js" />
       </list>
     </option>
   </component>
@@ -72,6 +65,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -88,11 +82,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.2.0" />
     <property name="last_opened_file_path" value="C:/Program Files/nodejs/node.exe" />
@@ -113,10 +107,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.t09-diagonal-attack.js">
-    <configuration name="t05-extract-subsequence.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="t05-extract-subsequence.js" working-dir="$PROJECT_DIR$/tasks">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Node.js.t10-orbit.js">
     <configuration name="t06-sort-by-two-criteria.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="t06-sort-by-two-criteria.js" working-dir="$PROJECT_DIR$/tasks">
       <method v="2" />
     </configuration>
@@ -129,13 +120,16 @@
     <configuration name="t09-diagonal-attack.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="t09-diagonal-attack.js" working-dir="$PROJECT_DIR$/tasks">
       <method v="2" />
     </configuration>
+    <configuration name="t10-orbit.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="t10-orbit.js" working-dir="$PROJECT_DIR$/tasks">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.t10-orbit.js" />
         <item itemvalue="Node.js.t09-diagonal-attack.js" />
         <item itemvalue="Node.js.t08-spiral-matrix.js" />
         <item itemvalue="Node.js.t07-magic-matrices.js" />
         <item itemvalue="Node.js.t06-sort-by-two-criteria.js" />
-        <item itemvalue="Node.js.t05-extract-subsequence.js" />
       </list>
     </recent_temporary>
   </component>
@@ -150,24 +144,20 @@
       <option name="presentableId" value="Default" />
       <updated>1558789040501</updated>
       <workItem from="1558789047185" duration="8841000" />
+      <workItem from="1558849857595" duration="4089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8841000" />
+    <option name="totallyTimeSpent" value="12930000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3286119" />
@@ -175,6 +165,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -208,20 +202,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/t08-second-try.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tasks/t08-spiral-matrix.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="51" column="1" lean-forward="true" selection-end-line="51" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/t08-second-try.js" />
+    <entry file="file://$PROJECT_DIR$/tasks/t08-spiral-matrix.js" />
     <entry file="file://$PROJECT_DIR$/tasks/t07-magic-matrices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -252,8 +234,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tasks/t09-diagonal-attack.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="324">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/t10-orbit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="49" selection-start-line="16" selection-start-column="49" selection-end-line="16" selection-end-column="49" />
         </state>
       </provider>
     </entry>
