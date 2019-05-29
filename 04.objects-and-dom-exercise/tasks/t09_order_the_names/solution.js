@@ -24,10 +24,9 @@ function solve() {
 
     const inputFieldElement = document.getElementsByTagName('input')[0];
     const addButtonElement = document.getElementsByTagName('button')[0];
-    console.log(addButtonElement);
 
     addButtonElement.addEventListener('click', () => {
-            const nameToBeAdded = inputFieldElement.value;
+            let nameToBeAdded = inputFieldElement.value;
             if (!nameToBeAdded)  //if it's an empty string, do nothing
                 return;
 
@@ -36,6 +35,7 @@ function solve() {
             if (letterListItemObject[firstLetter] === undefined)
                 return;
 
+			nameToBeAdded = nameToBeAdded[0].toUpperCase() + nameToBeAdded.substring(1).toLowerCase();
             letterListItemObject[firstLetter].appendName(nameToBeAdded);
         }
     )
