@@ -31,21 +31,19 @@ function atmMachine(arrayOfArrays) {
                     updateMoneyBillKeys();
                 }
 
-                console.log(`Service Report: ${arrayOfMoneyBills.reduce((a, c) => a + c, 0)}$ inserted. ` +
-                    `Current balance: ${getTotalAmount()}$.`);
+                return `Service Report: ${arrayOfMoneyBills.reduce((a, c) => a + c, 0)}$ inserted. ` +
+                    `Current balance: ${getTotalAmount()}$.`;
             },
             drawMoney: array => {
                 const balance = array[0];
                 let amount = array[1];
 
                 if (balance < amount) {
-                    console.log(`Not enough money in your account. Account balance: ${balance}$.`);
-                    return;
+                    return `Not enough money in your account. Account balance: ${balance}$.`;
                 }
 
                 if (amount > getTotalAmount()) {
-                    console.log('ATM machine is out of order!');
-                    return;
+                    return 'ATM machine is out of order!';
                 }
 
                 let drawnMoney = 0;
@@ -58,12 +56,12 @@ function atmMachine(arrayOfArrays) {
                     }
                 }
 
-                console.log(`You get ${array[1]}$. Account balance: ${balance - array[1]}$. Thank you!`)
+                return `You get ${array[1]}$. Account balance: ${balance - array[1]}$. Thank you!`;
             },
 
             report: array => {
                 const moneyBill = array[0];
-                console.log(`Service Report: Banknotes from ${moneyBill}$: ${moneyBills[String(moneyBill)]}.`);
+                return `Service Report: Banknotes from ${moneyBill}$: ${moneyBills[String(moneyBill)]}.`;
             }
         }
     };
@@ -72,11 +70,11 @@ function atmMachine(arrayOfArrays) {
 
     for (const currentArray of arrayOfArrays) {
         if (currentArray.length > 2) {
-            atmMachineObj.insertMoney(currentArray);
+            console.log(atmMachineObj.insertMoney(currentArray));;
         } else if (currentArray.length === 2) {
-            atmMachineObj.drawMoney(currentArray);
+            console.log(atmMachineObj.drawMoney(currentArray));;
         } else {
-            atmMachineObj.report(currentArray);
+            console.log(atmMachineObj.report(currentArray));;
         }
     }
 }
