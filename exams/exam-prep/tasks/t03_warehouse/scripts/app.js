@@ -35,7 +35,7 @@ function coffeeStorage() {
             for (const currentCoffee of coffeeArray)
                 result += `${currentCoffee['name']} - ${currentCoffee['expireDate']} - ${currentCoffee['quantity']}. `;
 
-            return result.trimEnd();
+            return result.trim();
         };
 
         const getCoffeeByName = (coffeeName) => {
@@ -62,7 +62,7 @@ function coffeeStorage() {
                 const coffeeComparisonByDateResult = coffeeCompareByExpireDate(newCoffee, foundCoffee);
 
                 if (coffeeComparisonByDateResult > 0) { //if newCoffee's expire date is later
-                    foundCoffee = newCoffee;
+                    foundCoffee = newCoffee; //TODO coffee is NOT replaced
                 } else if (coffeeComparisonByDateResult === 0) {
                     foundCoffee['quantity'] += newCoffee['quantity'];
                 } else {
@@ -92,8 +92,8 @@ function coffeeStorage() {
     const textAreaElement = document.body.querySelectorAll('section textarea')[0];
     const reportParagraph = document.body.querySelectorAll('section div p')[0];
     const inspectionParagraph = document.body.querySelectorAll('section div p')[1];
-    // const input = textAreaElement.value;
-    const inputArray = JSON.parse('["IN, Batdorf & Bronson, Espresso, 2025-05-25, 20","IN, Folgers, Black Silk, 2023-03-01, 14","IN, Lavazza, Crema e Gusto, 2023-05-01, 5","IN, Lavazza, Crema e Gusto, 2023-05-02, 5","IN, Folgers, Black Silk, 2022-01-01, 10","IN, Lavazza, Intenso, 2022-07-19, 20","OUT, Dallmayr, Espresso, 2022-07-19, 5","OUT, Dallmayr, Crema, 2022-07-19, 5","OUT, Lavazza, Crema e Gusto, 2020-01-28, 2","REPORT","INSPECTION"]');
+    const inputArray = JSON.parse(textAreaElement.value);
+    // const inputArray = JSON.parse('["IN, Batdorf & Bronson, Espresso, 2025-05-25, 20","IN, Folgers, Black Silk, 2023-03-01, 14","IN, Lavazza, Crema e Gusto, 2023-05-01, 5","IN, Lavazza, Crema e Gusto, 2023-05-02, 5","IN, Folgers, Black Silk, 2022-01-01, 10","IN, Lavazza, Intenso, 2022-07-19, 20","OUT, Dallmayr, Espresso, 2022-07-19, 5","OUT, Dallmayr, Crema, 2022-07-19, 5","OUT, Lavazza, Crema e Gusto, 2020-01-28, 2","REPORT","INSPECTION"]');
 
     for (const inputArrayElement of inputArray) {
         const tokens = inputArrayElement.split(', ');
@@ -101,8 +101,6 @@ function coffeeStorage() {
         const command = tokens[0];
         const brandName = tokens[1];
 
-        if (allBrands[brandName] === undefined)
-            allBrands[brandName] = brand(brandName);
 
         const coffee = {
             'name': tokens[2],
@@ -112,10 +110,15 @@ function coffeeStorage() {
 
         switch (command) {
             case 'IN':
+                if (allBrands[brandName] === undefined)
+                    allBrands[brandName] = brand(brandName);
+
                 allBrands[brandName].addCoffee(coffee);
                 break;
 
             case 'OUT':
+                if (allBrands[brandName] === undefined)
+                    break;
                 allBrands[brandName].removeCoffee(coffee);
                 break;
 
@@ -123,18 +126,16 @@ function coffeeStorage() {
                 let inspectionResult = '';
                 let orderedBrandNames = Object.keys(allBrands).sort((name1, name2) => name1.localeCompare(name2));
                 for (const currentBrandName of orderedBrandNames) {
-                    inspectionParagraph.textContent += allBrands[currentBrandName].inspection();
-                    const brElement = document.createElement('br');
-                    inspectionParagraph.appendChild(brElement);
+                    inspectionParagraph.innerHTML += allBrands[currentBrandName].inspection();
+                    inspectionParagraph.innerHTML += '<br>';
                 }
                 break;
 
             case 'REPORT':
                 let reportResult = '';
                 for (let currentBrandName in allBrands) {
-                    reportParagraph.textContent += allBrands[currentBrandName].report() + '<br/>';
-                    const brElement = document.createElement('br');
-                    reportParagraph.appendChild(brElement);
+                    reportParagraph.innerHTML += allBrands[currentBrandName].report();
+                    reportParagraph.innerHTML += '<br>';
                 }
                 break;
         }
@@ -143,7 +144,23 @@ function coffeeStorage() {
 
 //testing
 /*
-["IN, Batdorf & Bronson, Espresso, 2025-05-25, 20","IN, Folgers, Black Silk, 2023-03-01, 14","IN, Lavazza, Crema e Gusto, 2023-05-01, 5","IN, Lavazza, Crema e Gusto, 2023-05-02, 5","IN, Folgers, Black Silk, 2022-01-01, 10","IN, Lavazza, Intenso, 2022-07-19, 20","OUT, Dallmayr, Espresso, 2022-07-19, 5","OUT, Dallmayr, Crema, 2022-07-19, 5","OUT, Lavazza, Crema e Gusto, 2020-01-28, 2","REPORT","INSPECTION"]
+["IN, Batdorf & Bronson, Espresso, 2025-05-25, 20",
+"IN, Folgers, Black Silk, 2023-03-01, 14",
+"IN, Lavazza, Crema e Gusto, 2023-05-01, 5",
+"IN, Lavazza, Crema e Gusto, 2023-05-02, 5",
+"IN, Folgers, Black Silk, 2022-01-01, 10",
+"IN, Lavazza, Intenso, 2022-07-19, 20",
+"OUT, Dallmayr, Espresso, 2022-07-19, 5",
+"OUT, Dallmayr, Crema, 2022-07-19, 5",
+"OUT, Lavazza, Crema e Gusto, 2020-01-28, 2",
+"REPORT",
+"INSPECTION"]
  */
 
-
+/*
+'Batdorf & Bronson: Espresso - 2025-05-25 - 20.Folgers: Black Silk - 2023-03-01 - 14.Lavazza: Crema e Gusto - 2023-05-01 - 3. Intenso - 2022-07-19 - 20.'
+'Batdorf & Bronson: Espresso - 2025-05-25 - 20.Folgers: Black Silk - 2023-03-01 - 14.Lavazza: Crema e Gusto - 2023-05-02 - 3. Intenso - 2022-07-19 - 20.' //this is right
+ */
+/*
+expected (my output) to equal (right output)
+ */
